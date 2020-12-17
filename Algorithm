@@ -1,0 +1,23 @@
+                 Algorithm for LeaderBoard Portfolios & Dshots.
+Start:
+Step 1 : Load user interface.
+Step 2 : REST API’s are called using any techonology(keeping it generic) and the users are added to the room.
+Step 3 : Rooms are created ones the current is exhausted if the room requirement is not met or technical glitch then goto Step 7 else continue.
+Step 4 : The score of every user is calculated using the formula where LTP is last traded price  [ (LTP of the security at the end of the Pool Trading Window /LTP of security at the Start of the Pool Trading Window) – 1 ] x 100 this formula is store in the variable called return.
+Step 5 : Score is calculated using the formula Sum of [ (Weightage) x (Position) x (Return) ] where weightage and position are given in the portfolio and return is taken from step 4.
+Step 6 : The score is updated every 30 minutes using the amazon lamba(AWS Lambda is an event-driven, serverless computing platform provided by Amazon as a part of Amazon Web Services. It is a computing service that runs code in response to events and automatically manages the computing resources required by that code) As there are huge number of entries we cannot update the DB frequently.
+Step 7 : End or Exit.
+ 
+   
+  
+  pros : 
+  1. The algorithm is simple and straight forward.
+  2. The algorithm is efficient.
+  
+  cons :
+  1. The algorithm a bit less detailed then usual.
+  2. The algorithm is not specific with the techologies used.
+  
+  Breakpoint of the algorithm:
+  When the number of pools go upto 2 Million the algorithm might break when the user enter at the same time then the pool number will exceed then the prescribed number as new pool 
+  table/form(depending on DB) is created when the current pool is filled with prescribed number of users.
